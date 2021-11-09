@@ -5,13 +5,13 @@ app = Flask(__name__)
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:922766@localhost/quotes'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://qjhlkastcjigww:097423e91261ff6b96cbeb6576d8c1f9972e68083a7e037d2b974e04f2b90e09@ec2-34-250-16-127.eu-west-1.compute.amazonaws.com:5432/db60779hfdlqua'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app)
 
 
 class Favquotes(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=False)
     author = db.Column(db.String(30))
     quote = db.Column(db.String(2000))
 
